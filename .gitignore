@@ -1,5 +1,70 @@
-__pycache__/ 
-*.pyc 
-.env 
-data/applications.csv 
-data/resume.json 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# Personal data
+data/applications.csv
+data/resume.json
+data/resume.pdf
+data/*.pdf
+data/*.docx
+
+# Keep jobs.json for reference but you can gitignore if sensitive
+# data/jobs.json
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright
+playwright-report/
+test-results/
+screenshots/
+*.png
+*.jpg
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+
+# Config with secrets (if you add API keys)
+config.local.yaml
+secrets.yaml
