@@ -1,21 +1,37 @@
 # JobPilot (In the big 2026)
 
-A Python-based CLI tool for scraping job listings, tracking applications, and assisting with job applications.
+JobPilot is a full-stack application that helps you track, manage, and analyze your job applications in one place.
+It combines a modern frontend with a scalable backend API and persistent database storage.
 
-JobPilot is an MVP project built to streamline the job search process by reducing manual tracking and repetitive application steps. It combines scraping, tracking, and browser-assisted workflows into a single command-line tool.
-
----
-
-## Features
-
-* Job scraping from Indeed
-* Application tracking with status updates and notes
-* Browser-assisted application form filling using Playwright
-* CLI interface built with Typer and Rich
-* Application statistics and summaries
-
----
-
+🌟 Features
+📊 Dashboard
+View all job applications in a clean interface
+Sorted by most recent activity
+Displays company, role, status, and notes
+➕ Add Applications
+Add new applications directly from the UI
+Store:
+company
+job title
+location
+source (LinkedIn, Indeed, etc.)
+resume used
+notes
+🔄 Status Tracking
+Update application status instantly:
+Applied
+Interview
+Offer
+Rejected
+📈 Summary Metrics
+Total applications
+Interviews
+Offers
+Rejections
+🔌 API-Driven Architecture
+Fully decoupled frontend and backend
+REST API built with FastAPI
+Interactive Swagger docs
 ## Current Project Status
 
 This project is currently in **MVP stage**.
