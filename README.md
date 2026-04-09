@@ -1,4 +1,4 @@
-# JobPilot 🚀
+# JobPilot (In the big 2026)
 
 A Python-based CLI tool for scraping job listings, tracking applications, and assisting with job applications.
 
