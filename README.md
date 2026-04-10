@@ -222,13 +222,13 @@ POST /applications
 
 #  Demo 
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Dashboard
-![Dashboard](assets/UI pic (Job Pilot).png)
+![Dashboard](assets/dashboard.png)
 
 ### Add Application Form
-![Form](assets/terminal pic (job pilot))
+![Form](assets/terminal.png)
 
 ---
 
