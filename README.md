@@ -1,236 +1,269 @@
-# JobPilot (In the big 2026)
+# 🚀 JobPilot — Full-Stack Job Application Tracker (In the Big 2026)
 
-JobPilot is a full-stack application that helps you track, manage, and analyze your job applications in one place.
-It combines a modern frontend with a scalable backend API and persistent database storage.
+JobPilot is a full-stack system designed to help you **track, manage, and analyze your job applications** efficiently.
 
-🌟 Features
-📊 Dashboard
-View all job applications in a clean interface
-Sorted by most recent activity
-Displays company, role, status, and notes
-➕ Add Applications
-Add new applications directly from the UI
-Store:
-company
-job title
-location
-source (LinkedIn, Indeed, etc.)
-resume used
-notes
-🔄 Status Tracking
-Update application status instantly:
-Applied
-Interview
-Offer
-Rejected
-📈 Summary Metrics
-Total applications
-Interviews
-Offers
-Rejections
-🔌 API-Driven Architecture
-Fully decoupled frontend and backend
-REST API built with FastAPI
-Interactive Swagger docs
-## Current Project Status
-
-This project is currently in **MVP stage**.
-
-### Implemented
-
-* Indeed job scraping
-* Application tracking system (CSV-based)
-* CLI commands for scraping, applying, and viewing stats
-* Playwright-based assisted form filling
-
-### In Progress / Planned
-
-* Improved LinkedIn support (currently placeholder)
-* Safer and more flexible batch apply workflows
-* Better duplicate detection and validation
-* Web-based dashboard for tracking applications
-* Enhanced analytics and export features
+It combines:
+-  FastAPI backend
+-  SQLite database
+-  Next.js + TypeScript frontend
 
 ---
 
-## Installation
+## Features
 
-### 1. Clone the repository
+### Dashboard
+- View all applications in a clean UI
+- See company, role, and status
+- Sorted by most recent updates
 
-```bash
-git clone https://github.com/ArnaudViegas21/jobpilot.git
-cd jobpilot
-```
+###  Add Applications
+- Add jobs directly from the frontend
+- Store metadata like:
+  - company
+  - title
+  - location
+  - source
+  - notes
+  - resume used
 
-### 2. Install dependencies
+### Status Tracking
+- Update status instantly:
+  - Applied
+  - Interview
+  - Offer
+  - Rejected
 
-```bash
-pip install -r requirements.txt
-```
+### Summary Metrics
+- Total applications
+- Interviews
+- Offers
+- Rejections
 
-### 3. Install Playwright browsers
-
-```bash
-playwright install
-```
-
-### 4. Configure your settings
-
-```bash
-python main.py config
-```
-
-Edit `config.yaml` with your details:
-
-* Name, email, phone
-* Resume path
-* LinkedIn profile
-* Job search preferences
-
----
-
-## Usage
-
-### 🔍 Scrape Jobs
-
-```bash
-python main.py scrape --keywords "Python Developer" --location "Remote" --source indeed --limit 20
-```
+### API-Based Architecture
+- Decoupled frontend and backend
+- FastAPI REST API
+- Swagger docs available
 
 ---
 
-### 📝 Apply to Jobs
-
-```bash
-python main.py apply --job-id indeed_abc123
-```
-
-Batch apply:
-
-```bash
-python main.py apply --batch --limit 5
-```
-
-> The browser will open and auto-fill forms. Manual review is required before submission.
-
----
-
-### 📊 Track Applications
-
-View all applications:
-
-```bash
-python main.py track list
-```
-
-Update status:
-
-```bash
-python main.py track update --job-id indeed_abc123 --status interview --notes "Phone screen scheduled"
-```
-
-View summary:
-
-```bash
-python main.py track summary
-```
-
-Detailed stats:
-
-```bash
-python main.py stats
-```
-
----
-
-## Project Structure
+##  Project Structure
 
 ```
-jobpilot/
-├── applier/              # Browser automation (Playwright)
-├── scraper/              # Job scraping modules
-├── tracker/              # Application tracking logic
-├── data/                 # Local/sample data storage
-├── main.py               # CLI entry point
-├── config.yaml           # User configuration
-├── requirements.txt      # Dependencies
+JobPilot/
+├── backend/
+│   └── app/
+│       ├── main.py
+│       ├── db.py
+│       ├── models.py
+│       ├── schemas.py
+│       └── crud.py
+│
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── types/
+│
+├── scraper/
+├── applier/
+├── tracker/
+├── data/
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Data Models
+##  Tech Stack
 
-### Job
+### Backend
+- FastAPI
+- SQLAlchemy
+- SQLite
+- Pydantic
 
-* id, title, company, location
-* url, source, description
-* salary, easy_apply
-
-### Application
-
-* job_id, status
-* date_applied, date_updated
-* notes, resume_used
-* interview_date, offer_amount
+### Frontend
+- Next.js
+- TypeScript
+- Tailwind CSS
 
 ---
 
-## Important Notes
+##  Getting Started
 
-### LinkedIn Scraping
+### 1. Clone Repository
 
+```bash
+git clone https://github.com/YOUR_USERNAME/jobpilot.git
+cd jobpilot
+```
+
+---
+
+### 2. Backend Setup
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+
+pip install -r requirements.txt
+```
+
+Run backend:
+
+```bash
+uvicorn backend.app.main:app --reload
+```
+
+Backend:
+```
+http://127.0.0.1:8000
+```
+
+Docs:
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+### 3. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend:
+```
+http://localhost:3000
+```
+
+---
+
+## 🔗 Architecture
+
+```
+Frontend (Next.js)
+        ↓
+FastAPI Backend
+        ↓
+SQLite Database
+```
+
+---
+
+#  Data Models
+
+## Job
+- id
+- title
+- company
+- location
+- url
+- source
+- description
+- salary
+- easy_apply
+
+## Application
+- job_id
+- status
+- date_applied
+- date_updated
+- notes
+- resume_used
+- interview_date
+- offer_amount
+
+---
+
+#  Important Notes
+
+## LinkedIn Scraping
 LinkedIn scraping is currently a placeholder. Production usage would require:
-
-* official APIs
-* authenticated browser automation
-* or third-party services
-
----
-
-### Auto-Apply Safety
-
-Auto-submit is disabled by default. Always review applications before submitting.
+- official APIs
+- authenticated browser automation
+- or third-party services
 
 ---
 
-### Rate Limiting
+## Auto-Apply Safety
+Auto-submit is disabled by default.  
+Always review applications before submitting.
 
+---
+
+## Rate Limiting
 To avoid blocking:
-
-* use delays between requests
-* avoid aggressive scraping
-* respect site policies
+- use delays between requests
+- avoid aggressive scraping
+- respect site policies
 
 ---
 
-## Demo (Recommended to Add)
+#  Example API Request
 
-*Add screenshots here to improve usability and presentation*
+```json
+POST /applications
 
+{
+  "job_id": "test_1",
+  "company": "Google",
+  "title": "Software Engineer",
+  "location": "Remote",
+  "source": "indeed",
+  "status": "applied"
+}
 ```
-assets/
-  scrape-command.png
-  tracker-list.png
-  stats-summary.png
+
+---
+
+#  Demo 
+
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](assets/UI pic (Job Pilot).png)
+
+### Add Application Form
+![Form](assets/terminal pic (job pilot))
+
+---
+
+#  Roadmap
+
+- Support for additional job boards
+- Chrome extension for saving jobs
+- Web dashboard improvements
+- Resume & cover letter templating
+- Application analytics enhancements
+
+---
+
+#  Security
+
+The following are NOT committed:
+- config.yaml
+- .env files
+- database files (*.db)
+- personal data inside `/data`
+
+Use:
 ```
+config.example.yaml
+```
+as a template.
 
 ---
 
-## Roadmap
-
-* Support for additional job boards
-* Chrome extension for saving jobs
-* Web dashboard (React)
-* Resume & cover letter templating
-* Application analytics improvements
-
----
-
-## License
+#  License
 
 MIT License
 
 ---
 
-Built by [Arnaud Viegas](https://github.com/ArnaudViegas21)
+#  Built by
+
+**Arnaud Viegas**
